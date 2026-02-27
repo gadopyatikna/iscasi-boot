@@ -1,4 +1,4 @@
- make traget iscsi image
+# make traget iscsi image
 # parting
 sudo parted /dev/sda --script mklabel gpt
 sudo parted /dev/sda --script mkpart ESP fat32 1MiB 512MiB
@@ -29,4 +29,3 @@ sudo grub-install \
   --efi-directory=/mnt/boot/efi \
   --boot-directory=/mnt/boot \
   --removable
-

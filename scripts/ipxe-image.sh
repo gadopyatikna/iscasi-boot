@@ -21,7 +21,7 @@ make bin-arm64-efi/ipxe.efi EMBED=boot.ipxe
 mkdir -p efi/EFI/BOOT
 cp bin-arm64-efi/ipxe.efi efi/EFI/BOOT/BOOTAA64.EFI
 
-dd if=/dev/zero of=efi.img bs=1M count=64
+truncate -s 64M efi.img
 mkfs.vfat efi.img
 mkdir mnt
 sudo mount -o loop efi.img mnt

@@ -1,4 +1,4 @@
-sudo apt install -y git build-essential gcc binutils make     mtools xz-utils perl liblzma-dev
+sudo apt install -y git build-essential gcc binutils make mtools xz-utils perl liblzma-dev
 git clone iscsi-ipxe.git
 
 cat > boot.ipxe << 'EOF'
@@ -10,6 +10,7 @@ set iscsitarget iqn.2023-10.com.example:storage
 set initiator-name iqn.2004-10.com.ubuntu:01:33ca4aeade59
 
 sanhook iscsi:${server-ip}:3260::0:${iscsitarget}
+# sanboot --no-describe --drive 0x80 # automation step TODO
 
 echo iSCSI login successful
 shell

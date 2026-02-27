@@ -1,4 +1,3 @@
-# build uefi ipxe diks <3
 sudo apt install -y git build-essential gcc binutils make     mtools xz-utils perl liblzma-dev
 git clone iscsi-ipxe.git
 
@@ -40,14 +39,3 @@ qemu-system-aarch64 \
   -drive if=virtio,format=raw,file=efi.img \
   -device virtio-net-pci,netdev=net0 \
   -netdev user,id=net0
-
-root@alex-QEMU-Virtual-Machine:/# parted /dev/sda print
-Model: LIO-ORG disk01 (scsi)
-Disk /dev/sda: 10.7GB
-Sector size (logical/physical): 512B/512B
-Partition Table: gpt
-Disk Flags: 
-
-Number  Start   End     Size    File system  Name     Flags
- 1      1049kB  537MB   536MB   fat32        ESP      boot, esp
- 2      537MB   10.7GB  10.2GB  ext4         primary
